@@ -1,21 +1,21 @@
 server:
-  port: 8080
+  port: 8096
   servlet:
     context-path: /custom-path
-
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG       
 spring:
   main:
-    allow-bean-definition-overriding: true
-
-application:
-  swagger:
-    title: '@project.name@'
-    description: '@project.description@'
-    version: '@project.version@'
-    contact:
-      name: Telefonica del Peru
-      url: https://www.telefonica.com.pe
-      email: correo@dominio.com
-    license:
-      type: copyright
-      url: https://www.telefonica.com.pe
+    allow-bean-definition-overriding: true  
+  datasource:
+    url: jdbc:mysql://localhost:3306/dhr_ct_direction?autoReconnect=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: toor
+    hikari:
+      minimumIdle: 1
+      maximumPoolSize: 3
+      idleTimeout: 120000
+      maxLifetime: 300000
